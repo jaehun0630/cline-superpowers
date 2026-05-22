@@ -101,3 +101,5 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 ## Notes
 
 `TaskStart` is a Cline SR hook script. On macOS and Linux it must stay executable and extensionless after install.
+
+After installing hooks, enable Hooks in Cline SR so the installed `TaskStart` hook can run when a new task starts.
