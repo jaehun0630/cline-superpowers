@@ -20,7 +20,7 @@
 - Create: `packages/workflows/debug.md`
 - Create: `packages/workflows/review.md`
 - Create: `packages/workflows/finish-branch.md`
-- Create: `packages/hooks/session-start.md`
+- Create: `packages/hooks/TaskStart`
 - Copy: `../superpowers/skills/*` to `packages/skills/`
 
 - [ ] Create concise Cline-facing rule, workflow, and hook markdown files.

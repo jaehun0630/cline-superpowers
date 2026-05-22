@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -eu
+
+# Cline sends TaskStart metadata on stdin. It is not needed for this bootstrap.
+cat >/dev/null
+
+printf '%s\n' '{"cancel":false,"contextModification":"Apply the installed Superpowers bootstrap rule before acting. Check whether a Superpowers skill applies and load it before asking clarifying questions, planning, debugging, implementation, review, or completion claims. User instructions take priority when they conflict with a Superpowers skill.","errorMessage":""}'

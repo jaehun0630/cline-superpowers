@@ -8,7 +8,7 @@
 | --- | --- |
 | `packages/rules/*` | `~/Cline/Rules/*` |
 | `packages/workflows/*` | `~/Cline/Workflows/*` |
-| `packages/hooks/*` | `~/Cline/Hooks/*` |
+| `packages/hooks/TaskStart` | `~/Cline/Hooks/TaskStart` |
 | `packages/skills/*` | `~/.agents/skills/*` |
 
 ## Workspace Target
@@ -17,7 +17,7 @@
 | --- | --- |
 | `packages/rules/*` | `<repo>/.clinerules/*` |
 | `packages/workflows/*` | `<repo>/.clinerules/workflows/*` |
-| `packages/hooks/*` | `<repo>/.clinerules/hooks/*` |
+| `packages/hooks/TaskStart` | `<repo>/.clinerules/hooks/TaskStart` |
 | `packages/skills/*` | `<repo>/.agents/skills/*` |
 
 ## Install Behavior

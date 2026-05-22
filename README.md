@@ -11,7 +11,7 @@ Global target:
 ```text
 ~/Cline/Rules/*.md
 ~/Cline/Workflows/*.md
-~/Cline/Hooks/*.md
+~/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```
 
@@ -20,7 +20,7 @@ Workspace target:
 ```text
 <repo>/.clinerules/*.md
 <repo>/.clinerules/workflows/*.md
-<repo>/.clinerules/hooks/*.md
+<repo>/.clinerules/hooks/TaskStart
 <repo>/.agents/skills/<skill-name>/SKILL.md
 ```
 
@@ -82,7 +82,7 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 
 - `packages/rules/superpowers-bootstrap.md`: always-on bootstrap guidance.
 - `packages/workflows/*.md`: explicit workflow entry points.
-- `packages/hooks/session-start.md`: lightweight session bootstrap reminder.
+- `packages/hooks/TaskStart`: executable Cline hook that injects bootstrap context when a task starts.
 - `packages/skills/*`: Superpowers skills copied from upstream.
 - `scripts/install.sh`: target-aware installer.
 - `scripts/verify-install.sh`: install verifier.
@@ -90,4 +90,4 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 
 ## Notes
 
-Hooks are currently markdown instructions because the exact company Cline hook runtime format has not been confirmed. If hooks require executable scripts or JSON metadata, update `packages/hooks/` and the installer path mapping without changing the rest of the package structure.
+`TaskStart` is a Cline hook script. On macOS and Linux it must stay executable and extensionless after install. If the company Cline hook runtime requires a different global path, update the installer path mapping without changing the package layout.

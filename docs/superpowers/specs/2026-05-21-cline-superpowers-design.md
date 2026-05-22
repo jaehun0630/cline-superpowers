@@ -25,7 +25,7 @@ Global installation:
 ```text
 ~/Cline/Rules/*.md
 ~/Cline/Workflows/*.md
-~/Cline/Hooks/*.md
+~/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```
 
@@ -34,7 +34,7 @@ Workspace installation:
 ```text
 <repo>/.clinerules/*.md
 <repo>/.clinerules/workflows/*.md
-<repo>/.clinerules/hooks/*.md
+<repo>/.clinerules/hooks/TaskStart
 <repo>/.agents/skills/<skill-name>/SKILL.md
 ```
 
@@ -59,7 +59,7 @@ workspace/cline-superpowers/
       review.md
       finish-branch.md
     hooks/
-      session-start.md
+      TaskStart
     skills/
       using-superpowers/
       brainstorming/
@@ -122,9 +122,7 @@ Workflows should be concise wrappers that tell Cline which skill to load and wha
 
 ### Hooks
 
-Hooks are optional support files for company Cline environments that can load markdown hook instructions. The initial hook is `session-start.md`, which reminds Cline to use Superpowers bootstrap behavior and skill loading at the start of each session.
-
-If the company Cline hook format requires executable scripts or JSON metadata, hooks will be adapted after inspecting that exact format.
+Hooks are executable Cline scripts. The initial hook is `TaskStart`, which returns JSON with `contextModification` so Cline receives Superpowers bootstrap behavior when a new task starts.
 
 ### Scripts
 
@@ -188,5 +186,5 @@ A working setup should cause Cline to use the brainstorming process before writi
 
 ## Open Questions
 
-- The exact company Cline hook file format is not confirmed. The first version will treat hooks as markdown instruction files unless a stricter format is provided.
+- The company Cline build should be checked for any global hook path differences from the package installer mapping.
 - It is not yet confirmed whether company Cline supports native skill discovery from both global and workspace `.agents/skills` paths. The installer and verifier will make the copied files explicit, and manual Cline testing will confirm runtime behavior.
