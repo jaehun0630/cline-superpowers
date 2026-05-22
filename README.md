@@ -1,8 +1,8 @@
 # Cline Superpowers
 
-Company Cline packaging for the Superpowers development methodology.
+Cline SR port of the Superpowers development methodology.
 
-This repository adapts `obra/superpowers` for a Cline environment that supports Rules, Workflows, Hooks, and Skills at both global and workspace scope.
+This repository adapts `obra/superpowers` for Cline SR environments that support Rules, Workflows, Hooks, and Skills at both global and workspace scope.
 
 ## What It Installs
 
@@ -11,7 +11,7 @@ Global target:
 ```text
 ~/Cline/Rules/*.md
 ~/Cline/Workflows/*.md
-~/Cline/Hooks/TaskStart
+~/Document/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```
 
@@ -58,6 +58,15 @@ Verify an install:
 scripts/verify-install.sh --target workspace --repo /path/to/repo
 ```
 
+Uninstall the package files from one target:
+
+```bash
+scripts/uninstall.sh --target global --dry-run
+scripts/uninstall.sh --target workspace --repo /path/to/repo
+```
+
+The uninstall script removes only the Superpowers files installed by this package. It leaves unrelated Cline SR rules, workflows, hooks, and skills intact.
+
 ## Update From Upstream
 
 Clone or update `obra/superpowers` next to this repository, then run:
@@ -85,9 +94,10 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 - `packages/hooks/TaskStart`: executable Cline hook that injects bootstrap context when a task starts.
 - `packages/skills/*`: Superpowers skills copied from upstream.
 - `scripts/install.sh`: target-aware installer.
+- `scripts/uninstall.sh`: target-aware remover for package-owned files.
 - `scripts/verify-install.sh`: install verifier.
 - `scripts/sync-from-upstream.sh`: upstream skill sync helper.
 
 ## Notes
 
-`TaskStart` is a Cline hook script. On macOS and Linux it must stay executable and extensionless after install. If the company Cline hook runtime requires a different global path, update the installer path mapping without changing the package layout.
+`TaskStart` is a Cline SR hook script. On macOS and Linux it must stay executable and extensionless after install.

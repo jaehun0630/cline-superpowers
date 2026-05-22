@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create a company-internal Cline package that brings the Superpowers development methodology into the company's Cline environment. The package must support both global installation, where behavior applies to every workspace, and workspace installation, where behavior is committed to and applied only inside one repository.
+Create a Cline SR port that brings the Superpowers development methodology into Cline SR. The package must support both global installation, where behavior applies to every workspace, and workspace installation, where behavior is committed to and applied only inside one repository.
 
 The source package should avoid maintaining separate global and workspace copies. It should keep one canonical set of rules, workflows, hooks, and skills, then install those files into the correct Cline paths for the selected target.
 
@@ -16,16 +16,16 @@ The package is based on `obra/superpowers` cloned at upstream commit `f2cbfbe` (
 - `CLAUDE.md` and `GEMINI.md`: harness-specific bootstrap instructions.
 - `tests/`: skill triggering and adapter verification scripts.
 
-This Cline package will reuse the skill content and adapt the packaging, installation, and bootstrap behavior for the company Cline file layout.
+This Cline SR package will reuse the skill content and adapt the packaging, installation, and bootstrap behavior for the Cline SR file layout.
 
-## Company Cline Path Model
+## Cline SR Path Model
 
 Global installation:
 
 ```text
 ~/Cline/Rules/*.md
 ~/Cline/Workflows/*.md
-~/Cline/Hooks/TaskStart
+~/Document/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```
 
@@ -78,6 +78,7 @@ workspace/cline-superpowers/
   scripts/
     sync-from-upstream.sh
     install.sh
+    uninstall.sh
     verify-install.sh
   docs/
     path-mapping.md
@@ -94,7 +95,7 @@ workspace/cline-superpowers/
 
 Skills are the primary integration mechanism. Each Superpowers skill remains a directory containing `SKILL.md` plus any supporting files. Skill names and YAML frontmatter are preserved unless Cline compatibility requires a narrow change.
 
-The package should initially include all upstream general-purpose Superpowers skills. Skills that reference unavailable subagent features should remain present, but their instructions or companion notes should explain the fallback path when company Cline lacks equivalent subagent support.
+The package should initially include all upstream general-purpose Superpowers skills. Skills that reference unavailable subagent features should remain present, but their instructions or companion notes should explain the fallback path when Cline SR lacks equivalent subagent support.
 
 ### Bootstrap Rule
 
@@ -137,6 +138,8 @@ Hooks are executable Cline scripts. The initial hook is `TaskStart`, which retur
 
 The script should create missing destination directories, copy files idempotently, and avoid deleting unknown user files unless an explicit clean option is added later.
 
+`scripts/uninstall.sh` removes package-owned files from either global or workspace paths. It should delete only files and skill directories installed by this package, leaving unrelated Cline SR files and destination directories intact.
+
 `scripts/verify-install.sh` checks that expected files exist at the selected target and reports missing files.
 
 ## Data Flow
@@ -159,7 +162,7 @@ Install scripts should fail clearly when:
 - Source package directories are missing.
 - A destination file exists but is not writable.
 
-Warnings should be used when optional hook support cannot be verified, since hook format details may vary in the company Cline build.
+Warnings should be used when optional hook support cannot be verified, since hook format details may vary in the Cline SR build.
 
 ## Testing
 
@@ -186,5 +189,5 @@ A working setup should cause Cline to use the brainstorming process before writi
 
 ## Open Questions
 
-- The company Cline build should be checked for any global hook path differences from the package installer mapping.
-- It is not yet confirmed whether company Cline supports native skill discovery from both global and workspace `.agents/skills` paths. The installer and verifier will make the copied files explicit, and manual Cline testing will confirm runtime behavior.
+- The Cline SR build should be checked for any global hook path differences from the package installer mapping.
+- It is not yet confirmed whether Cline SR supports native skill discovery from both global and workspace `.agents/skills` paths. The installer and verifier will make the copied files explicit, and manual Cline testing will confirm runtime behavior.

@@ -31,10 +31,12 @@
 
 **Files:**
 - Create: `scripts/install.sh`
+- Create: `scripts/uninstall.sh`
 - Create: `scripts/verify-install.sh`
 - Create: `scripts/sync-from-upstream.sh`
 
 - [ ] Implement `install.sh` with `--target global|workspace`, `--repo`, and `--dry-run`.
+- [ ] Implement `uninstall.sh` to remove package-owned files with the same target parsing and dry-run support.
 - [ ] Implement `verify-install.sh` with the same target parsing and expected file checks.
 - [ ] Implement `sync-from-upstream.sh` to copy upstream skills and record metadata.
 - [ ] Make scripts executable.
