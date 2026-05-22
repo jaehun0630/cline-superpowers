@@ -1,8 +1,8 @@
 # Cline Superpowers
 
-Cline SR port of the Superpowers development methodology.
+Superpowers adapted for use with Cline SR.
 
-This repository adapts `obra/superpowers` for Cline SR environments that support Rules, Workflows, Hooks, and Skills at both global and workspace scope.
+This repository packages `obra/superpowers` for Cline SR environments that support Rules, Workflows, Hooks, and Skills at both global and workspace scope.
 
 ## What It Installs
 
