@@ -98,6 +98,10 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 - `scripts/verify-install.sh`: install verifier.
 - `scripts/sync-from-upstream.sh`: upstream skill sync helper.
 
+## Usage Guide
+
+See [`docs/skill-guide.md`](docs/skill-guide.md) for each skill's role, expected trigger, and example prompts.
+
 ## Notes
 
 `TaskStart` is a Cline SR hook script. On macOS and Linux it must stay executable and extensionless after install.
