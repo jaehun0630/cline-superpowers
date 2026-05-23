@@ -1,8 +1,8 @@
 # Cline Superpowers
 
-Superpowers adapted for use with Cline SR.
+Superpowers and selected agent skills adapted for use with Cline SR.
 
-This repository packages `obra/superpowers` for Cline SR environments that support Rules, Workflows, Hooks, and Skills at both global and workspace scope.
+This repository packages `obra/superpowers` plus selected compatible skills from `mattpocock/skills` for Cline SR environments that support Rules, Workflows, Hooks, and Skills at both global and workspace scope.
 
 ## What It Installs
 
@@ -75,7 +75,7 @@ Clone or update `obra/superpowers` next to this repository, then run:
 scripts/sync-from-upstream.sh --upstream ../superpowers
 ```
 
-The script copies upstream `skills/` into `packages/skills/` and records the upstream commit in `packages/UPSTREAM.md`.
+The script refreshes the Superpowers skill directories in `packages/skills/` and records the upstream commit in `packages/UPSTREAM.md`. It preserves separately packaged skills such as `grill-me` and `improve-codebase-architecture`.
 
 ## Manual Acceptance Test
 
@@ -92,7 +92,7 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 - `packages/rules/superpowers-bootstrap.md`: always-on bootstrap guidance.
 - `packages/workflows/*.md`: explicit workflow entry points.
 - `packages/hooks/TaskStart`: executable Cline hook that injects bootstrap context when a task starts.
-- `packages/skills/*`: Superpowers skills copied from upstream.
+- `packages/skills/*`: Superpowers skills plus selected compatible skills adapted for Cline SR.
 - `scripts/install.sh`: target-aware installer.
 - `scripts/uninstall.sh`: target-aware remover for package-owned files.
 - `scripts/verify-install.sh`: install verifier.
@@ -103,3 +103,10 @@ Expected behavior: Cline should use the Superpowers brainstorming process before
 `TaskStart` is a Cline SR hook script. On macOS and Linux it must stay executable and extensionless after install.
 
 After installing hooks, enable Hooks in Cline SR so the installed `TaskStart` hook can run when a new task starts.
+
+Additional skills from `mattpocock/skills` are available after install:
+
+- `grill-me`: stress-test a plan or design through focused questioning.
+- `improve-codebase-architecture`: find deepening opportunities that improve locality, leverage, testability, and AI navigability.
+
+These skills can be triggered by matching user requests or invoked directly through the installed workflows.

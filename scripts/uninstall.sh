@@ -94,6 +94,8 @@ remove_path "$WORKFLOWS_DEST/execute-plan.md" "workflow"
 remove_path "$WORKFLOWS_DEST/debug.md" "workflow"
 remove_path "$WORKFLOWS_DEST/review.md" "workflow"
 remove_path "$WORKFLOWS_DEST/finish-branch.md" "workflow"
+remove_path "$WORKFLOWS_DEST/grill-me.md" "workflow"
+remove_path "$WORKFLOWS_DEST/improve-codebase-architecture.md" "workflow"
 remove_path "$HOOKS_DEST/TaskStart" "hook"
 
 for skill in \
@@ -110,7 +112,9 @@ for skill in \
   using-superpowers \
   verification-before-completion \
   writing-plans \
-  writing-skills
+  writing-skills \
+  grill-me \
+  improve-codebase-architecture
 do
   remove_path "$SKILLS_DEST/$skill" "skill"
 done

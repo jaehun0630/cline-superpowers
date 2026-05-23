@@ -21,5 +21,7 @@ Important default triggers:
 - Bug, failing test, or unexpected behavior: use `systematic-debugging`.
 - Before saying work is complete or fixed: use `verification-before-completion`.
 - Before merge or after substantial work: use `requesting-code-review` if review support exists.
+- Stress-testing a plan or design, or when the user says "grill me": use `grill-me`.
+- Architecture improvement, refactoring opportunity discovery, module consolidation, testability improvement, or AI navigability review: use `improve-codebase-architecture`.
 
 Do not treat this rule as a replacement for the skills. It only tells you to load the right skill at the right time.
