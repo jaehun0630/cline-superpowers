@@ -1,5 +1,7 @@
 # Skill Guide
 
+[한국어](skill-guide.kor.md)
+
 This document explains what each packaged skill does, when Cline SR should use it, and how a user can call it directly.
 
 ## How Skills Are Selected

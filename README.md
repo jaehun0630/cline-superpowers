@@ -1,5 +1,7 @@
 # Cline Superpowers
 
+[한국어](README.kor.md)
+
 Superpowers and selected agent skills adapted for use with Cline SR.
 
 This repository packages `obra/superpowers` plus selected compatible skills from `mattpocock/skills` for Cline SR environments that support Rules, Workflows, Hooks, and Skills at both global and workspace scope.
