@@ -13,7 +13,7 @@ Global target:
 ```text
 ~/Cline/Rules/*.md
 ~/Cline/Workflows/*.md
-~/Document/Cline/Hooks/TaskStart
+~/Documents/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```
 

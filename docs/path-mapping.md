@@ -8,7 +8,7 @@
 | --- | --- |
 | `packages/rules/*` | `~/Cline/Rules/*` |
 | `packages/workflows/*` | `~/Cline/Workflows/*` |
-| `packages/hooks/TaskStart` | `~/Document/Cline/Hooks/TaskStart` |
+| `packages/hooks/TaskStart` | `~/Documents/Cline/Hooks/TaskStart` |
 | `packages/skills/*` | `~/.agents/skills/*` |
 
 ## Workspace Target

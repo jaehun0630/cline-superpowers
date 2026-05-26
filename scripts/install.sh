@@ -72,7 +72,7 @@ case "$TARGET" in
   global)
     RULES_DEST="$HOME/Cline/Rules"
     WORKFLOWS_DEST="$HOME/Cline/Workflows"
-    HOOKS_DEST="$HOME/Document/Cline/Hooks"
+    HOOKS_DEST="$HOME/Documents/Cline/Hooks"
     SKILLS_DEST="$HOME/.agents/skills"
     ;;
   workspace)
