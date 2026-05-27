@@ -2,12 +2,14 @@
 
 `packages/` is the canonical source tree. Global and workspace installs use the same source files.
 
+Global paths are resolved from `cline-superpowers.config` by default. If a PC uses different Cline SR global paths, edit that config file instead of changing the scripts.
+
 ## Global Target
 
 | Source | Destination |
 | --- | --- |
-| `packages/rules/*` | `~/Cline/Rules/*` |
-| `packages/workflows/*` | `~/Cline/Workflows/*` |
+| `packages/rules/*` | `~/Documents/Cline/Rules/*` |
+| `packages/workflows/*` | `~/Documents/Cline/Workflows/*` |
 | `packages/hooks/TaskStart` | `~/Documents/Cline/Hooks/TaskStart` |
 | `packages/skills/*` | `~/.agents/skills/*` |
 

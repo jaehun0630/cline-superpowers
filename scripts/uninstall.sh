@@ -4,7 +4,7 @@ set -eu
 usage() {
   cat <<'USAGE'
 Usage:
-  scripts/uninstall.sh --target global [--dry-run]
+  scripts/uninstall.sh --target global [--config /path/to/config] [--dry-run]
   scripts/uninstall.sh --target workspace --repo /path/to/repo [--dry-run]
 
 Removes files installed by Cline Superpowers without deleting unrelated Cline files.
@@ -14,6 +14,7 @@ USAGE
 TARGET=""
 REPO=""
 DRY_RUN=0
+CONFIG_FILE=""
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -29,6 +30,10 @@ while [ "$#" -gt 0 ]; do
       DRY_RUN=1
       shift
       ;;
+    --config)
+      CONFIG_FILE="${2:-}"
+      shift 2
+      ;;
     -h|--help)
       usage
       exit 0
@@ -41,12 +46,31 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+ROOT_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+
+load_config() {
+  if [ -z "$CONFIG_FILE" ]; then
+    CONFIG_FILE="$ROOT_DIR/cline-superpowers.config"
+  fi
+
+  if [ -f "$CONFIG_FILE" ]; then
+    . "$CONFIG_FILE"
+  fi
+
+  : "${CLINE_RULES_DIR:=$HOME/Documents/Cline/Rules}"
+  : "${CLINE_WORKFLOWS_DIR:=$HOME/Documents/Cline/Workflows}"
+  : "${CLINE_HOOKS_DIR:=$HOME/Documents/Cline/Hooks}"
+  : "${CLINE_SKILLS_DIR:=$HOME/.agents/skills}"
+}
+
 case "$TARGET" in
   global)
-    RULES_DEST="$HOME/Cline/Rules"
-    WORKFLOWS_DEST="$HOME/Cline/Workflows"
-    HOOKS_DEST="$HOME/Documents/Cline/Hooks"
-    SKILLS_DEST="$HOME/.agents/skills"
+    load_config
+    RULES_DEST="$CLINE_RULES_DIR"
+    WORKFLOWS_DEST="$CLINE_WORKFLOWS_DIR"
+    HOOKS_DEST="$CLINE_HOOKS_DIR"
+    SKILLS_DEST="$CLINE_SKILLS_DIR"
     ;;
   workspace)
     if [ -z "$REPO" ]; then

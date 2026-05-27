@@ -8,7 +8,7 @@ The source package should avoid maintaining separate global and workspace copies
 
 ## Upstream Baseline
 
-The package is based on `obra/superpowers` cloned at upstream commit `f2cbfbe` (`Release v5.1.0`). The upstream repository is a multi-harness Superpowers distribution with:
+The package is based on `obra/superpowers` cloned at upstream commit `f2cbfbe` (`Release v5.1.0`). Global paths are configured through `cline-superpowers.config` so different PCs can adjust Cline SR locations without editing scripts. The upstream repository is a multi-harness Superpowers distribution with:
 
 - `skills/`: the core Superpowers skill library.
 - `.codex-plugin/`, `.claude-plugin/`, `.cursor-plugin/`: harness metadata.
@@ -23,8 +23,8 @@ This Cline SR package will reuse the skill content and adapt the packaging, inst
 Global installation:
 
 ```text
-~/Cline/Rules/*.md
-~/Cline/Workflows/*.md
+~/Documents/Cline/Rules/*.md
+~/Documents/Cline/Workflows/*.md
 ~/Documents/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```

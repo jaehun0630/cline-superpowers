@@ -11,8 +11,8 @@ This repository packages `obra/superpowers` plus selected compatible skills from
 Global target:
 
 ```text
-~/Cline/Rules/*.md
-~/Cline/Workflows/*.md
+~/Documents/Cline/Rules/*.md
+~/Documents/Cline/Workflows/*.md
 ~/Documents/Cline/Hooks/TaskStart
 ~/.agents/skills/<skill-name>/SKILL.md
 ```
@@ -27,6 +27,18 @@ Workspace target:
 ```
 
 The source files live once under `packages/`; install scripts copy them into the selected target.
+
+## Global Path Configuration
+
+Global installs read `cline-superpowers.config` by default. If a PC uses different Cline SR global paths, edit that file and rerun install, verify, or uninstall.
+
+You can also pass a separate config file:
+
+```bash
+scripts/install.sh --target global --config /path/to/cline-superpowers.config
+scripts/verify-install.sh --target global --config /path/to/cline-superpowers.config
+scripts/uninstall.sh --target global --config /path/to/cline-superpowers.config
+```
 
 ## Install
 

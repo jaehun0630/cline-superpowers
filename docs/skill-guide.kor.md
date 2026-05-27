@@ -15,7 +15,7 @@ Cline SR은 설치된 skill을 다음 경로에서 발견합니다.
 
 Workflow는 명시적인 진입점입니다. 특정 프로세스를 강제로 사용하고 싶을 때 사용합니다.
 
-- Global workflows: `~/Cline/Workflows/*.md`
+- Global workflows: `~/Documents/Cline/Workflows/*.md`
 - Workspace workflows: `<repo>/.clinerules/workflows/*.md`
 
 ## 추천 흐름

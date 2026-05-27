@@ -15,7 +15,7 @@ The installed `TaskStart` hook and `superpowers-bootstrap.md` rule tell Cline SR
 
 Workflows are explicit entry points. Use them when you want to force a particular process:
 
-- Global workflows: `~/Cline/Workflows/*.md`
+- Global workflows: `~/Documents/Cline/Workflows/*.md`
 - Workspace workflows: `<repo>/.clinerules/workflows/*.md`
 
 ## Recommended Mental Model
