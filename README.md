@@ -10,23 +10,32 @@ This repository packages `obra/superpowers` plus selected compatible skills from
 
 After installation, the `TaskStart` hook and bootstrap rule ask Cline SR to choose a skill when the user request matches one of these trigger conditions. The agent can still choose a different skill when the request context is more specific.
 
-### Superpowers Skills
+### Main Superpowers Workflow
+
+These are the primary skills most users should reach for during normal development.
 
 | Skill | Trigger conditions | Example requests |
 | --- | --- | --- |
-| `using-superpowers` | Start of a task, or when Cline SR appears to skip skill selection. | "Use the using-superpowers skill before continuing." |
 | `brainstorming` | New feature, behavior change, creative implementation, or unclear requirements before implementation. | "Let's make a React todo list"; "I want to add a new export feature." |
 | `writing-plans` | Existing spec/design, explicit todo list request, implementation plan request, or multi-step work before edits. | "Analyze this repo and write a todo list for phase 2 and phase 3."; "Create an implementation plan." |
-| `using-git-worktrees` | Feature work that should be isolated from the current workspace, especially larger changes with multiple commits. | "Set up an isolated workspace before implementing this plan." |
-| `subagent-driven-development` | Written plan with independent tasks when Cline SR has usable delegation/subagent support. | "Execute this plan using subagent-driven development if available." |
 | `executing-plans` | Written implementation plan executed in the current session, especially when subagent support is unavailable or not desired. | "Execute this implementation plan in this session." |
 | `test-driven-development` | Feature implementation, bugfix, behavior refactor, or user-visible behavior change. | "Implement this with TDD."; "Fix this bug with a failing test first." |
 | `systematic-debugging` | Failing test, bug report, flaky behavior, unexpected behavior, or performance issue that needs evidence before fixing. | "This test is failing. Find the root cause before fixing it." |
 | `verification-before-completion` | Before claiming work is done or fixed, and before commit, push, merge, or PR. | "Verify the implementation before reporting completion." |
+
+### Supporting Superpowers Skills
+
+These are used for bootstrap, isolation, delegation, reviews, branch completion, and skill authoring.
+
+| Skill | Trigger conditions | Example requests |
+| --- | --- | --- |
+| `using-superpowers` | Start of a task, or when Cline SR appears to skip skill selection. | "Use the using-superpowers skill before continuing." |
+| `using-git-worktrees` | Feature work that should be isolated from the current workspace, especially larger changes with multiple commits. | "Set up an isolated workspace before implementing this plan." |
+| `subagent-driven-development` | Written plan with independent tasks when Cline SR has usable delegation/subagent support. | "Execute this plan using subagent-driven development if available." |
+| `dispatching-parallel-agents` | Multiple independent investigations, unrelated failures, or separate subsystems that can be explored in parallel. | "Investigate these three independent failures in parallel." |
 | `requesting-code-review` | After substantial or risky work, before merge, or after a complex bugfix. | "Review the current changes before I merge them." |
 | `receiving-code-review` | Review feedback arrives, especially if feedback is unclear or technically questionable. | "Evaluate this review feedback before applying it." |
 | `finishing-a-development-branch` | Implementation and verification are done, and you need to choose merge, push, PR, keep, or cleanup. | "Finish this development branch." |
-| `dispatching-parallel-agents` | Multiple independent investigations, unrelated failures, or separate subsystems that can be explored in parallel. | "Investigate these three independent failures in parallel." |
 | `writing-skills` | Creating, editing, or verifying skills before distribution. | "Help me write a new Cline SR skill for migration reviews." |
 
 ### Skills From `mattpocock/skills`
