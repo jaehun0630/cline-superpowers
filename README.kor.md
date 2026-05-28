@@ -101,6 +101,29 @@ Let's make a react todo list
 
 기대 동작: Cline SR이 바로 구현 코드를 작성하지 않고 Superpowers의 `brainstorming` 흐름을 먼저 사용해야 합니다.
 
+## Skill 발동 조건 요약
+
+`TaskStart` hook과 bootstrap rule은 사용자 요청이 아래 조건에 맞을 때 Cline SR이 적절한 skill을 선택하도록 안내합니다. 특정 절차를 강제로 사용하고 싶으면 workflow를 직접 호출하세요.
+
+| Skill | 발동 조건 |
+| --- | --- |
+| `using-superpowers` | 새 task 시작 시, 또는 Cline SR이 skill 선택을 건너뛰는 것처럼 보일 때 |
+| `brainstorming` | 새 기능, 동작 변경, 창의적인 구현, 요구사항이 불명확한 구현 전 단계 |
+| `writing-plans` | 이미 spec/design이 있을 때, todo list 요청, implementation plan 요청, 코드 수정 전 여러 단계로 나눠야 하는 작업 |
+| `using-git-worktrees` | 현재 workspace와 분리된 feature 작업을 시작할 때, 특히 여러 commit이 필요한 큰 변경 |
+| `subagent-driven-development` | 작성된 plan에 독립적인 task가 있고 Cline SR에서 delegation/subagent 기능을 사용할 수 있을 때 |
+| `executing-plans` | 작성된 implementation plan을 현재 세션에서 실행할 때, 특히 subagent 기능이 없거나 원하지 않을 때 |
+| `test-driven-development` | feature 구현, bug 수정, behavior refactoring, 사용자에게 보이는 동작 변경 |
+| `systematic-debugging` | 실패하는 test, bug report, flaky behavior, 예상과 다른 동작, 근거 수집이 필요한 성능 문제 |
+| `verification-before-completion` | 완료 또는 수정 완료를 말하기 전, commit, push, merge, PR 전 |
+| `requesting-code-review` | 큰 변경이나 위험한 작업 후, merge 전, 복잡한 bugfix 후 |
+| `receiving-code-review` | review feedback을 받았을 때, 특히 feedback이 불명확하거나 기술적으로 의심스러울 때 |
+| `finishing-a-development-branch` | 구현과 검증이 끝난 뒤 merge, push, PR, branch 유지, cleanup 중 선택해야 할 때 |
+| `dispatching-parallel-agents` | 독립적인 조사 여러 개, 관련 없는 failure 여러 개, 병렬로 탐색 가능한 별도 subsystem이 있을 때 |
+| `writing-skills` | 새 skill 작성, 기존 skill 수정, 배포 전 skill 검증 |
+| `grill-me` | 명시적인 "grill me", pressure testing, critique, 구현 전 계획/설계 도전 요청 |
+| `improve-codebase-architecture` | architecture review, refactoring opportunity, shallow module, testability, locality, leverage, AI navigability 개선 |
+
 ## 구성
 
 - `packages/rules/superpowers-bootstrap.md`: 항상 적용되는 bootstrap 규칙입니다.

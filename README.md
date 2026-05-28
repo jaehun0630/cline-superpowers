@@ -101,6 +101,29 @@ Let's make a react todo list
 
 Expected behavior: Cline should use the Superpowers brainstorming process before writing implementation code.
 
+## Skill Trigger Summary
+
+The `TaskStart` hook and bootstrap rule ask Cline SR to choose a skill when the user request matches one of these trigger conditions. Use a workflow directly when you want to force a specific process.
+
+| Skill | Trigger conditions |
+| --- | --- |
+| `using-superpowers` | Start of a task, or when Cline SR appears to skip skill selection. |
+| `brainstorming` | New feature, behavior change, creative implementation, or unclear requirements before implementation. |
+| `writing-plans` | Existing spec/design, explicit todo list request, implementation plan request, or multi-step work that should be broken down before edits. |
+| `using-git-worktrees` | Starting feature work that should be isolated from the current workspace, especially larger changes with multiple commits. |
+| `subagent-driven-development` | Executing a written plan with independent tasks when Cline SR has usable delegation/subagent support. |
+| `executing-plans` | Executing a written implementation plan in the current session, especially when subagent support is unavailable or not desired. |
+| `test-driven-development` | Implementing a feature, fixing a bug, refactoring behavior, or changing user-visible behavior. |
+| `systematic-debugging` | Failing test, bug report, flaky behavior, unexpected behavior, or performance issue that needs evidence before fixing. |
+| `verification-before-completion` | Before claiming work is done or fixed, and before commit, push, merge, or PR. |
+| `requesting-code-review` | After substantial or risky work, before merge, or after a complex bugfix. |
+| `receiving-code-review` | When review feedback arrives, especially if feedback is unclear or technically questionable. |
+| `finishing-a-development-branch` | After implementation and verification pass, when deciding whether to merge, push, open PR, keep, or clean up a branch. |
+| `dispatching-parallel-agents` | Multiple independent investigations, unrelated failures, or separate subsystems that can be explored in parallel. |
+| `writing-skills` | Creating, editing, or verifying skills before distribution. |
+| `grill-me` | Explicit "grill me", pressure testing, critique, or challenging a plan/design before implementation. |
+| `improve-codebase-architecture` | Architecture review, refactoring opportunities, shallow modules, testability, locality, leverage, or AI navigability improvements. |
+
 ## Contents
 
 - `packages/rules/superpowers-bootstrap.md`: always-on bootstrap guidance.
