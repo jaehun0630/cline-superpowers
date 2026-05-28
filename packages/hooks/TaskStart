@@ -1,7 +1,37 @@
-#!/usr/bin/env sh
-set -eu
+#!/bin/bash
+#
+# TaskStart Hook
+#
+# Execute when a new Cline SR task begins.
+#
+# Input: {
+#     taskId,
+#     taskStart: {
+#         taskMetadata: { taskId: string, ulid: string, initialTask: string }
+#     },
+#     clineVersion, timestamp, ...
+# }
+# Output: { cancel: boolean, contextModification?: string, errorMessage?: string }
 
-# Cline sends TaskStart metadata on stdin. It is not needed for this bootstrap.
-cat >/dev/null
+INPUT=$(cat)
 
-printf '%s\n' '{"cancel":false,"contextModification":"Apply the installed Superpowers bootstrap rule before acting. Check whether a Superpowers skill applies and load it before asking clarifying questions, planning, debugging, implementation, review, or completion claims. User instructions take priority when they conflict with a Superpowers skill.","errorMessage":""}'
+if command -v jq &> /dev/null; then
+  TASK=$(echo "$INPUT" | jq -r '.taskStart.taskMetadata.initialTask // "<task>"')
+  TASK_ID=$(echo "$INPUT" | jq -r '.taskId // "<taskId>"')
+else
+  TASK="<task>"
+  TASK_ID="<taskId>"
+fi
+
+echo "[TaskStart] Task started: $TASK" >&2
+echo "[TaskStart] Task ID: $TASK_ID" >&2
+echo "[TaskStart] Injecting Superpowers bootstrap context" >&2
+
+CONTEXT_MOD="Apply the installed Superpowers bootstrap rule before acting. Check whether a Superpowers skill applies and load it before asking clarifying questions, planning, debugging, implementation, review, or completion claims. User instructions take priority when they conflict with a Superpowers skill."
+
+if command -v jq &> /dev/null; then
+  jq -n --arg ctx "$CONTEXT_MOD" '{"cancel":false,"contextModification":$ctx,"errorMessage":""}'
+else
+  ESCAPED_MOD=$(printf '%s' "$CONTEXT_MOD" | sed 's/\\/\\\\/g; s/"/\\"/g')
+  echo '{"cancel":false,"contextModification":"'"$ESCAPED_MOD"'","errorMessage":""}'
+fi
