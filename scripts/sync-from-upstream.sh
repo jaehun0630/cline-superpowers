@@ -77,7 +77,7 @@ cat > "$ROOT_DIR/packages/UPSTREAM.md" <<EOF
 
 - Repository: https://github.com/mattpocock/skills
 - Commit: b8be62f
-- Included skills: \`grill-me\`, \`improve-codebase-architecture\`
+- Included skills: \`grill-me\`, \`improve-codebase-architecture\`, \`handoff\`
 EOF
 
 echo "Synced Superpowers skills from $UPSTREAM_DIR at $UPSTREAM_COMMIT"

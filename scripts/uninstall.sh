@@ -120,6 +120,7 @@ remove_path "$WORKFLOWS_DEST/review.md" "workflow"
 remove_path "$WORKFLOWS_DEST/finish-branch.md" "workflow"
 remove_path "$WORKFLOWS_DEST/grill-me.md" "workflow"
 remove_path "$WORKFLOWS_DEST/improve-codebase-architecture.md" "workflow"
+remove_path "$WORKFLOWS_DEST/handoff.md" "workflow"
 remove_path "$HOOKS_DEST/TaskStart" "hook"
 
 for skill in \
@@ -138,7 +139,8 @@ for skill in \
   writing-plans \
   writing-skills \
   grill-me \
-  improve-codebase-architecture
+  improve-codebase-architecture \
+  handoff
 do
   remove_path "$SKILLS_DEST/$skill" "skill"
 done

@@ -44,6 +44,7 @@ These are used for bootstrap, isolation, delegation, reviews, branch completion,
 | --- | --- | --- |
 | `grill-me` | Explicit "grill me", pressure testing, critique, or challenging a plan/design before implementation. | "Grill me on this implementation plan."; "Challenge this architecture decision." |
 | `improve-codebase-architecture` | Architecture review, refactoring opportunities, shallow modules, testability, locality, leverage, or AI navigability improvements. | "Analyze this repository and find architecture improvements."; "Find shallow modules and refactoring opportunities." |
+| `handoff` | Conversation handoff, session transfer, or preparing a summary for another agent to continue the work. | "Create a handoff for the next session."; "Summarize this work so another agent can continue." |
 
 ### Manual Triggers
 
@@ -51,7 +52,7 @@ Automatic selection depends on Cline SR matching the request to installed skill 
 
 - Mention the skill name in the request: "Use `systematic-debugging` to find the root cause."
 - Ask for the process directly: "Create an implementation plan before editing code."
-- Use an installed workflow when Cline SR exposes workflows in the UI: `/brainstorm.md`, `/write-plan.md`, `/debug.md`, `/review.md`, `/finish-branch.md`, `/grill-me.md`, `/improve-codebase-architecture.md`.
+- Use an installed workflow when Cline SR exposes workflows in the UI: `/brainstorm.md`, `/write-plan.md`, `/debug.md`, `/review.md`, `/finish-branch.md`, `/grill-me.md`, `/improve-codebase-architecture.md`, `/handoff.md`.
 
 ## Install
 
@@ -146,7 +147,7 @@ Clone or update `obra/superpowers` next to this repository, then run:
 scripts/sync-from-upstream.sh --upstream ../superpowers
 ```
 
-The script refreshes the Superpowers skill directories in `packages/skills/` and records the upstream commit in `packages/UPSTREAM.md`. It preserves separately packaged skills such as `grill-me` and `improve-codebase-architecture`.
+The script refreshes the Superpowers skill directories in `packages/skills/` and records the upstream commit in `packages/UPSTREAM.md`. It preserves separately packaged skills such as `grill-me`, `improve-codebase-architecture`, and `handoff`.
 
 ## Contents
 
@@ -173,5 +174,6 @@ Additional skills from `mattpocock/skills` are available after install:
 
 - `grill-me`: stress-test a plan or design through focused questioning.
 - `improve-codebase-architecture`: find deepening opportunities that improve locality, leverage, testability, and AI navigability.
+- `handoff`: write a concise handoff document for another agent or future session.
 
 These skills can be triggered by matching user requests or invoked directly through the installed workflows.

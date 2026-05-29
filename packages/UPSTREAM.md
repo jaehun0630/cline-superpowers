@@ -9,4 +9,4 @@
 
 - Repository: https://github.com/mattpocock/skills
 - Commit: b8be62f
-- Included skills: `grill-me`, `improve-codebase-architecture`
+- Included skills: `grill-me`, `improve-codebase-architecture`, `handoff`

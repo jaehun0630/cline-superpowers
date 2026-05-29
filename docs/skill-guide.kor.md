@@ -339,6 +339,33 @@ Find shallow modules and propose deepening candidates.
 - 넓은 architecture improvement 요청에 적합합니다.
 - 작은 구현 task는 요청 내용에 따라 `brainstorming`, `writing-plans`, `test-driven-development`가 더 적합할 수 있습니다.
 
+### `handoff`
+
+역할: 현재 대화를 다른 agent나 다음 session이 이어받을 수 있도록 handoff 문서로 압축합니다.
+
+사용 시점:
+
+- 다른 agent가 작업을 이어받아야 할 때
+- 현재 session을 종료하기 전에 context를 보존해야 할 때
+- plan, ADR, commit, 기존 문서 내용을 중복하지 않고 간결한 이어받기 요약이 필요할 때
+
+기대 동작:
+
+- handoff 문서를 repository가 아니라 OS temporary directory에 저장합니다.
+- 기존 artifact는 내용을 복사하지 않고 path 또는 URL로 참조합니다.
+- 다음 agent가 호출하면 좋을 suggested skills를 포함합니다.
+- 민감 정보는 redact합니다.
+
+예시 prompt:
+
+```text
+다음 세션을 위한 handoff를 작성해줘.
+```
+
+```text
+다른 agent가 이어서 할 수 있게 지금까지 작업을 정리해줘.
+```
+
 ## 흔한 시나리오
 
 ### "Let's make a React todo list"
@@ -391,6 +418,16 @@ Find shallow modules and propose deepening candidates.
 
 - 사용자가 명시적으로 pressure testing을 요청했습니다.
 
+### "다음 세션을 위한 handoff를 작성해줘."
+
+기대 skill:
+
+- `handoff`
+
+이유:
+
+- 현재 대화를 이어받기 문서로 압축해 달라는 요청입니다.
+
 ## Workflow 직접 호출
 
 자동 skill 선택이 원하는 프로세스를 고르지 않을 때 workflow를 사용하세요.
@@ -403,6 +440,7 @@ Find shallow modules and propose deepening candidates.
 /finish-branch.md
 /grill-me.md
 /improve-codebase-architecture.md
+/handoff.md
 ```
 
 정확한 호출 방식은 Cline SR workflow UI에 따라 다를 수 있습니다. 중요한 점은 각 workflow가 이름에 해당하는 skill을 load하고 Cline SR에게 어떤 process를 따라야 하는지 알려준다는 것입니다.

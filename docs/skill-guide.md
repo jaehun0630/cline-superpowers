@@ -339,6 +339,33 @@ Automatic trigger guidance:
 - This skill is appropriate for broad architecture improvement requests.
 - For small implementation tasks, prefer `brainstorming`, `writing-plans`, or `test-driven-development` depending on the request.
 
+### `handoff`
+
+Role: Compact the current conversation into a handoff document for another agent or future session.
+
+Use when:
+
+- The user wants another agent to continue the work.
+- The current session is ending and context should be preserved.
+- A concise summary is needed without duplicating plans, ADRs, commits, or other existing artifacts.
+
+Expected behavior:
+
+- Save the handoff document to the OS temporary directory, not the repository.
+- Reference existing artifacts by path or URL instead of copying their contents.
+- Include suggested skills for the next agent.
+- Redact sensitive information.
+
+Example prompts:
+
+```text
+Create a handoff for the next session.
+```
+
+```text
+Summarize this work so another agent can continue from here.
+```
+
 ## Common Scenarios
 
 ### "Let's make a React todo list"
@@ -391,6 +418,16 @@ Why:
 
 - The user is explicitly asking for pressure testing.
 
+### "Create a handoff for the next session."
+
+Expected skill:
+
+- `handoff`
+
+Why:
+
+- The request is to compact the current conversation into a continuation document.
+
 ## Direct Workflow Invocation
 
 Use workflows when automatic skill selection does not pick the process you want:
@@ -403,6 +440,7 @@ Use workflows when automatic skill selection does not pick the process you want:
 /finish-branch.md
 /grill-me.md
 /improve-codebase-architecture.md
+/handoff.md
 ```
 
 Exact invocation syntax may differ depending on the Cline SR workflow UI. The important point is that each workflow loads the named skill and tells Cline SR which process to follow.
